@@ -623,3 +623,7 @@ java.lang.IllegalArgumentException: Page index must not be less than zero
 2024-10-16T00:38:26.181+05:30  INFO 10728 --- [ElectronicStore] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-10-16T00:38:26.181+05:30  INFO 10728 --- [ElectronicStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-10-16T00:38:26.182+05:30  INFO 10728 --- [ElectronicStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-10-16T01:13:32.492+05:30  INFO 10728 --- [ElectronicStore] [RMI TCP Connection(101)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-10-16T01:13:32.505+05:30  INFO 10728 --- [ElectronicStore] [RMI TCP Connection(101)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-16T01:13:32.505+05:30  INFO 10728 --- [ElectronicStore] [RMI TCP Connection(101)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-10-16T01:13:32.508+05:30  INFO 10728 --- [ElectronicStore] [RMI TCP Connection(101)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.

@@ -21,6 +21,7 @@ public class ElectronicStoreApplication implements CommandLineRunner{
 		// TODO Auto-generated method stub
 		System.out.println("Application Started");
 		System.out.println(passwordEncoder.encode("ankit123"));
+		System.out.println("Pushed it");
 	}
 
 }
