@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -33,12 +34,17 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UniqueIdGenerator uniqueIdGen;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@Override
 	public UserDto createUser(UserDto userdto) {
 		// Generate unique ID in String format
 		String uniqueId = uniqueIdGen.generateUniqueId();
 		userdto.setUserId(uniqueId);
+		//encoding the user password before storing it into database
+		userdto.setUserPassword(passwordEncoder.encode(userdto.getUserPassword()));
 
 		User user = DtoToEntity(userdto); // UserDto -> Entity : To perform database
 		User savedUser = userRepo.save(user);
@@ -115,7 +121,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	private UserDto EntityToDto(User savedUser) {
-		UserDto userDto = UserDto.builder().userId(savedUser.getUserId()).userName(savedUser.getUserName())
+		UserDto userDto = UserDto.builder().userId(savedUser.getUserId()).userName(savedUser.getUsername())
 				.userEmail(savedUser.getUserEmail()).userGender(savedUser.getUserGender())
 				.userImageName(savedUser.getUserImageName()).build();
 		// return mapper.map(savedUser, UserDto.class);

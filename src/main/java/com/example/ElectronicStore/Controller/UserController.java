@@ -52,7 +52,6 @@ public class UserController {
 		return new ResponseEntity<>(message, HttpStatus.OK);
 	}
 
-	// get all user
 	@GetMapping()
 	public ResponseEntity<PageableResponse<UserDto>> getAllUser(
 			@RequestParam(value="pageNumber", defaultValue="0",required=false) int pageNumber,
